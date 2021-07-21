@@ -1,22 +1,34 @@
-import logo from './logo.svg';
+import React, { useState, useMemo } from 'react';
 import './App.css';
+import Child from './components/child';
 
 function App() {
+
+  const [i, setI] = useState(0);
+
+  const memoChild = useMemo(() => {
+    return <Child />
+  }, [])
+
+  const memoChildwithi = useMemo(() => {
+    return <Child />
+  }, [i])
+
+  const handleClick = () => {
+    setI(i + 1);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>use memo</h2>
+        <h2>i: {i}</h2>
+        <button onClick={handleClick}>Increament I</button>
+        <Child />
+        <h2>Memo Child</h2>
+        {memoChild}
+        <h2>Memo Child with i </h2>
+        {memoChildwithi}
       </header>
     </div>
   );
