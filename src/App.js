@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import './App.css';
 import Child from './components/child';
+import Sechild from './components/sechild';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         {memoChild}
         <h2>Memo Child with i </h2>
         {memoChildwithi}
+        <Sechild  />
       </header>
     </div>
   );
